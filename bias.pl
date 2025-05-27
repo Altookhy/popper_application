@@ -1,50 +1,34 @@
-% Language bias for Popper to learn color matching game rules
+head_pred(valid_place_action,4).
+body_pred(object_color,2).
+body_pred(cell,3).
+body_pred(object_available,2).
+body_pred(cell_available,3).
 
-% Predicate declarations
-head_pred(valid_move,3).
-body_pred(valid_coord,2).
-body_pred(cell_has_color,3).
-body_pred(cell_occupied,2).
-body_pred(block,2).
-body_pred(geq,2).
-body_pred(leq,2).
+% Types
+type(valid_place_action,(object,coord,coord,state)).
+type(object_color,(object,color)).
+type(cell,(coord,coord,color)).
+type(object_available,(object,state)).
+type(cell_available,(coord,coord,state)).
 
-% Type definitions
-type(valid_move,(block_id,coord,coord)).
-type(valid_coord,(coord,coord)).
-type(cell_has_color,(coord,coord,color)).
-type(cell_occupied,(coord,coord)).
-type(block,(block_id,color)).
-type(color,(color)).
-type(geq,(int,int)).
-type(leq,(int,int)).
-
-% Direction declarations
-direction(valid_move,(in,in,in)).
-direction(valid_coord,(in,in)).
-direction(cell_has_color,(in,in,in)).
-direction(cell_occupied,(in,in)).
-direction(block,(in,in)).
-direction(geq,(in,in)).
-direction(leq,(in,in)).
+% Directions
+direction(valid_place_action,(in,in,in,in)).
+direction(object_color,(in,out)).
+direction(cell,(in,in,out)).
+direction(object_available,(in,in)).
+direction(cell_available,(in,in,in)).
 
 % Constants
-block_id(b1).
-block_id(b2).
-block_id(b3).
-block_id(b4).
-block_id(b5).
-
+object(o1).
+object(o2).
+object(o3).
+object(o4).
 coord(0).
 coord(1).
-coord(2).
-
-color(yellow).
-color(blue).
-color(orange).
 color(red).
-color(magenta).
+color(blue).
+color(green).
+color(yellow).
 
-% Bias settings
-max_vars(3).
-max_body(3).
+max_vars(6).
+max_body(6).
