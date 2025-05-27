@@ -1,5 +1,6 @@
-:- discontiguous neg/1
-:- discontiguous pos/1
+:- discontiguous neg/1.
+:- discontiguous pos/1.
+
 % ============================================
 % Examples for Color Matching Game
 % ============================================
