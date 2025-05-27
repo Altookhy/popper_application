@@ -16,14 +16,21 @@ The goal: **Place n objects into n specific cells (e.g. objects and cells have t
 - [SWI-Prolog](https://www.swi-prolog.org/) (for running the program)
 - [Python 3](https://www.python.org/) (for Popper)
 - [Popper](https://github.com/logic-and-learning-lab/Popper) (see below)
-- (Optional) [Docker](https://www.docker.com/) or [WSL](https://docs.microsoft.com/en-us/windows/wsl/) for Linux-based Popper runs
+- [Docker](https://www.docker.com/) or [WSL](https://docs.microsoft.com/en-us/windows/wsl/) for Linux-based Popper runs
 
 ### 2. Clone Popper
 ```
 git clone https://github.com/logic-and-learning-lab/Popper.git
 ```
 
-### 3. Project Files
+### 3. Using Docker
+```
+docker build -t popper-env .
+docker run -it -v D:/Uni:/workspace popper-env
+cd /opt/popper
+```
+
+### 4. Project Files
 Place the following files in your working directory:
 - `bk.pl` (background knowledge)
 - `exs.pl` (examples)
@@ -43,7 +50,7 @@ Place the following files in your working directory:
 
 3. **Expected Output:**
    Popper will learn a rule like:
-   ```prolog
+   ```
    valid_place_action(O,X,Y,State) :-
        cell_available(X,Y,State),
        object_color(O,Color),
