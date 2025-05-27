@@ -10,8 +10,7 @@
 :- dynamic block/2. % block(BlockID, Color)
 :- discontiguous color/1.
 :- discontiguous cell/3.
-:- discontiguous neg/1
-:- discontiguous pos/1
+
 
 % Basic facts
 color(red).
