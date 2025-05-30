@@ -158,26 +158,23 @@ can_place(O,X,Y,State) :-
     cell_available(X,Y,State).
 
 % Robot state predicates
-robot_free(State) :- member(holding(none), State).
-robot_holding(State, Color) :- member(holding(Color), State).
-robot_at(State, X, Y) :- member(robot(X,Y), State).
+robot_free(State) :- 
+    member(holding(none), State).
 
-% Object state predicates
-object_at(Object, X, Y, State) :- member(object_pos(Object, X, Y), State).
-goal_at(Color, X, Y, State) :- member(goal_pos(Color, X, Y), State).
+robot_holding(State, Color) :- 
+    member(holding(Color), State).
 
-% Action validation predicates
-valid_grab_action(Object, State) :-
-    robot_free(State),
-    robot_at(State, X, Y),
-    object_at(Object, X, Y, State).
+robot_at(State, X, Y) :- 
+    member(robot(X,Y), State).
 
-valid_release_action(Object, State) :-
-    robot_holding(State, Color),
-    robot_at(State, X, Y),
-    goal_at(Color, X, Y, State).
+% Object and goal positions
+object_at(Object, X, Y, State) :- 
+    member(object_pos(Object, X, Y), State).
 
-% State update helper predicates
+goal_at(Color, X, Y, State) :- 
+    member(goal_pos(Color, X, Y), State).
+
+% State transition helpers
 update_robot_holding(State, Object, NewState) :-
     object_color(Object, Color),
     select(holding(none), State, TempState),
