@@ -56,3 +56,23 @@ neg(valid_place_action(o1,2,2,[])). % out of bounds
 neg(valid_place_action(o2,-1,0,[])). % out of bounds
 neg(valid_place_action(o3,0,-1,[])). % out of bounds
 neg(valid_place_action(o4,2,0,[])). % out of bounds
+
+% Grab action examples
+pos(valid_grab_action(o1, [robot(0,0), holding(none), object_pos(o1,0,0)])).
+pos(valid_grab_action(o2, [robot(0,1), holding(none), object_pos(o2,0,1)])).
+pos(valid_grab_action(o3, [robot(1,0), holding(none), object_pos(o3,1,0)])).
+
+% Invalid grab examples
+neg(valid_grab_action(o1, [robot(0,0), holding(red), object_pos(o1,0,0)])). % Robot not free
+neg(valid_grab_action(o1, [robot(0,1), holding(none), object_pos(o1,0,0)])). % Robot not at object
+neg(valid_grab_action(o1, [robot(0,0), holding(none)])). % No object at position
+
+% Release action examples
+pos(valid_release_action(o1, [robot(0,0), holding(red), goal_pos(red,0,0)])).
+pos(valid_release_action(o2, [robot(0,1), holding(blue), goal_pos(blue,0,1)])).
+pos(valid_release_action(o3, [robot(1,0), holding(green), goal_pos(green,1,0)])).
+
+% Invalid release examples
+neg(valid_release_action(o1, [robot(0,0), holding(none), goal_pos(red,0,0)])). % Robot not holding
+neg(valid_release_action(o1, [robot(0,1), holding(red), goal_pos(red,0,0)])). % Robot not at goal
+neg(valid_release_action(o1, [robot(0,0), holding(blue), goal_pos(red,0,0)])). % Wrong color goal
