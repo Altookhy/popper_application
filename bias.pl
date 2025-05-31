@@ -10,30 +10,37 @@ body_pred(robot_holding,2).
 body_pred(goal_at,4).
 body_pred(object_color,2).
 
-% Type definitions
-type(valid_grab_action,(object,list)).
-type(valid_release_action,(object,list)).
-type(robot_free,(list)).
-type(robot_at,(list,coord,coord)).
-type(object_at,(object,coord,coord,list)).
-type(robot_holding,(list,color)).
-type(goal_at,(color,coord,coord,list)).
+% Types
+type(valid_grab_action,(object,state)).
+type(valid_release_action,(object,state)).
+type(robot_free,(state)).
+type(robot_at,(state,coord,coord)).
+type(object_at,(object,coord,coord,state)).
+type(robot_holding,(state,color)).
+type(goal_at,(color,coord,coord,state)).
 type(object_color,(object,color)).
 
-% Mode declarations
-:- modeh(1,valid_grab_action(+object,+list)).
-:- modeh(1,valid_release_action(+object,+list)).
-:- modeb(1,robot_free(+list)).
-:- modeb(1,robot_at(+list,+coord,+coord)).
-:- modeb(1,object_at(+object,+coord,+coord,+list)).
-:- modeb(1,robot_holding(+list,-color)).
-:- modeb(1,goal_at(+color,+coord,+coord,+list)).
-:- modeb(1,object_color(+object,-color)).
+% Directions
+direction(valid_grab_action,(in,in)).
+direction(valid_release_action,(in,in)).
+direction(robot_free,(in)).
+direction(robot_at,(in,in,in)).
+direction(object_at,(in,in,in,in)).
+direction(robot_holding,(in,in)).
+direction(goal_at,(in,in,in,in)).
+direction(object_color,(in,out)).
 
-% Base types
-base(coord, (0,1)).
-base(color, (red,blue,green,yellow)).
-base(object, (o1,o2,o3,o4)).
+% Constants
+coord(0).
+coord(1).
+color(red).
+color(blue).
+color(green).
+color(yellow).
+object(o1).
+object(o2).
+object(o3).
+object(o4).
 
 % Settings
 max_vars(6).
