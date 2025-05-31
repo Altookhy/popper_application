@@ -18,7 +18,7 @@ direction(cell,(in,in,out)).
 direction(object_available,(in,in)).
 direction(cell_available,(in,in,in)).
 
-% Constants
+% Constants 1
 object(o1).
 object(o2).
 object(o3).
@@ -31,4 +31,4 @@ color(green).
 color(yellow).
 
 max_vars(6).
-max_body(6).
+max_body(6).  
