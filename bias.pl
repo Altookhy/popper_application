@@ -26,9 +26,14 @@ direction(valid_release_action,(in,in)).
 direction(robot_free,(in)).
 direction(robot_at,(in,in,in)).
 direction(object_at,(in,in,in,in)).
-direction(robot_holding,(in,in)).
+direction(robot_holding,(in,out)).
 direction(goal_at,(in,in,in,in)).
 direction(object_color,(in,out)).
+
+% Additional directions for state handling
+direction(state,(in)).
+direction(coord,(in)).
+direction(color,(in)).
 
 % Constants
 coord(0).
