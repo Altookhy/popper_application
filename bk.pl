@@ -156,3 +156,19 @@ can_place(O,X,Y,State) :-
     cell(X,Y,Color),
     object_available(O,State),
     cell_available(X,Y,State).
+
+% --------------------------------------------
+% Example for documentation/report:
+% example:
+% color(red).
+% color(blue).
+% color(green).
+% color(yellow).
+% block(b1, red).
+% cell(0,0,red).
+% can_place_block(BlockID, X, Y) :-
+%     valid_coord(X, Y),
+%     block(BlockID, Color),
+%     cell_has_color(X, Y, Color),
+%     \+ cell_occupied(X, Y).
+% --------------------------------------------

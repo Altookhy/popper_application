@@ -32,3 +32,13 @@ color(yellow).
 
 max_vars(6).
 max_body(6).  
+
+
+% --------------------------------------------
+% head_pred(valid_place_action,4).
+% body_pred(object_color,2).
+% type(object_color,(object,color)).
+% direction(object_color,(in,out)).
+% max_body(3).
+% --------------------------------------------
+
