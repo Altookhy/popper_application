@@ -12,7 +12,6 @@
 :- discontiguous cell/3.
 
 
-% Basic facts
 color(red).
 color(blue).
 color(green).

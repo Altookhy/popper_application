@@ -56,3 +56,59 @@ neg(valid_place_action(o1,2,2,[])). % out of bounds
 neg(valid_place_action(o2,-1,0,[])). % out of bounds
 neg(valid_place_action(o3,0,-1,[])). % out of bounds
 neg(valid_place_action(o4,2,0,[])). % out of bounds
+
+% Examples for 3x3 grid
+pos(valid_place_action(o1,0,0,[])).
+pos(valid_place_action(o2,0,1,[])).
+pos(valid_place_action(o3,0,2,[])).
+pos(valid_place_action(o4,1,0,[])).
+pos(valid_place_action(o5,1,1,[])).
+pos(valid_place_action(o6,1,2,[])).
+pos(valid_place_action(o7,2,0,[])).
+pos(valid_place_action(o8,2,1,[])).
+pos(valid_place_action(o9,2,2,[])).
+
+neg(valid_place_action(o1,0,1,[])).
+neg(valid_place_action(o2,1,0,[])).
+neg(valid_place_action(o3,2,1,[])).
+neg(valid_place_action(o4,0,2,[])).
+neg(valid_place_action(o5,1,2,[])).
+neg(valid_place_action(o6,2,0,[])).
+neg(valid_place_action(o7,2,2,[])).
+neg(valid_place_action(o8,0,0,[])).
+neg(valid_place_action(o9,1,1,[])).
+
+% Examples for 4x4 grid
+pos(valid_place_action(o1,0,0,[])).
+pos(valid_place_action(o2,0,1,[])).
+pos(valid_place_action(o3,0,2,[])).
+pos(valid_place_action(o4,0,3,[])).
+pos(valid_place_action(o5,1,0,[])).
+pos(valid_place_action(o6,1,1,[])).
+pos(valid_place_action(o7,1,2,[])).
+pos(valid_place_action(o8,1,3,[])).
+pos(valid_place_action(o9,2,0,[])).
+pos(valid_place_action(o10,2,1,[])).
+pos(valid_place_action(o11,2,2,[])).
+pos(valid_place_action(o12,2,3,[])).
+pos(valid_place_action(o13,3,0,[])).
+pos(valid_place_action(o14,3,1,[])).
+pos(valid_place_action(o15,3,2,[])).
+pos(valid_place_action(o16,3,3,[])).
+
+neg(valid_place_action(o1,0,1,[])).
+neg(valid_place_action(o2,1,0,[])).
+neg(valid_place_action(o3,2,1,[])).
+neg(valid_place_action(o4,3,0,[])).
+neg(valid_place_action(o5,0,2,[])).
+neg(valid_place_action(o6,1,3,[])).
+neg(valid_place_action(o7,2,2,[])).
+neg(valid_place_action(o8,3,1,[])).
+neg(valid_place_action(o9,0,3,[])).
+neg(valid_place_action(o10,1,2,[])).
+neg(valid_place_action(o11,2,3,[])).
+neg(valid_place_action(o12,3,2,[])).
+neg(valid_place_action(o13,0,0,[])).
+neg(valid_place_action(o14,1,1,[])).
+neg(valid_place_action(o15,2,0,[])).
+neg(valid_place_action(o16,3,3,[])).
