@@ -12,6 +12,7 @@
 :- discontiguous cell/3.
 
 
+
 color(red).
 color(blue).
 color(green).
