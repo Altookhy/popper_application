@@ -77,8 +77,8 @@ valid_move(BlockID, X, Y) :-  % Check if a move is valid
 init_grid :-  % Initialize grid with random colors
     retractall(cell(_, _, _)),
     grid_size(Size),
-    forall(between(1, Size, X),
-           forall(between(1, Size, Y),
+    forall(between(0, Size-1, X),
+           forall(between(0, Size-1, Y),
                   (random_color(Color),
                    assertz(cell(X, Y, Color))))).
 
@@ -89,9 +89,9 @@ random_color(Color) :-  % Get a random color
 display_grid :-  % Display the current grid
     grid_size(Size),
     nl,
-    forall(between(1, Size, Y),
+    forall(between(0, Size-1, Y),
            (nl,
-            forall(between(1, Size, X),
+            forall(between(0, Size-1, X),
                    (cell(X, Y, Color) ->
                        write(Color), write('\t')
                    ;
@@ -151,11 +151,11 @@ cell_available(X,Y,State) :- \+ member(placed(_,X,Y), State).
 object_available(O,State) :- \+ member(placed(O,_,_), State).
 
 % Valid move: place object O in cell (X,Y) if colors match and both are available
-can_place(O,X,Y,State) :-
-    object_color(O,Color),
-    cell(X,Y,Color),
-    object_available(O,State),
-    cell_available(X,Y,State).
+can_place(O, X, Y, State) :-
+    object_color(O, Color),
+    cell(X, Y, Color),
+    object_available(O, State),
+    cell_available(X, Y, State).
 
 % --------------------------------------------
 % Example for documentation/report:
