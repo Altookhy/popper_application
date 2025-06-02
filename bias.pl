@@ -53,7 +53,7 @@ color(green).
 color(yellow).
 
 max_vars(6).
-max_body(6).  
+max_body(8).  
 
 
 % --------------------------------------------
