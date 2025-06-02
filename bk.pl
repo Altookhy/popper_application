@@ -127,6 +127,7 @@ init_grid :-  % Initialize grid with random colors
 random_color(Color) :-  % Get a random color
     findall(C, color(C), Colors),
     random_member(Color, Colors).
+    
 
 display_grid :-  % Display the current grid
     grid_size(Size),
