@@ -116,18 +116,20 @@ valid_move(BlockID, X, Y) :-  % Check if a move is valid
 % Background Knowledge
 % ============================================
 
-init_grid :-  % Initialize grid with random colors
-    retractall(cell(_, _, _)),
-    grid_size(Size),
-    forall(between(0, Size-1, X),
-           forall(between(0, Size-1, Y),
-                  (random_color(Color),
-                   assertz(cell(X, Y, Color))))).
+% The following predicates are for gameplay randomization only.
+% For ILP/Popper, do NOT call init_grid. Popper will use the static cell/3 facts below.
 
-random_color(Color) :-  % Get a random color
-    findall(C, color(C), Colors),
-    random_member(Color, Colors).
-    
+% init_grid :-  % Initialize grid with random colors
+%     retractall(cell(_, _, _)),
+%     grid_size(Size),
+%     forall(between(0, Size-1, X),
+%            forall(between(0, Size-1, Y),
+%                   (random_color(Color),
+%                    assertz(cell(X, Y, Color))))).
+
+% random_color(Color) :-  % Get a random color
+%     findall(C, color(C), Colors),
+%     random_member(Color, Colors).
 
 display_grid :-  % Display the current grid
     grid_size(Size),
