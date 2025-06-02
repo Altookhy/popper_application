@@ -23,10 +23,38 @@ block(b2, blue).
 block(b3, green).
 block(b4, yellow).
 
+% 2x2 grid cells
 cell(0,0,red).
 cell(0,1,blue).
 cell(1,0,green).
 cell(1,1,yellow).
+% 3x3 grid cells
+cell(0,0,red).
+cell(0,1,blue).
+cell(0,2,green).
+cell(1,0,yellow).
+cell(1,1,red).
+cell(1,2,blue).
+cell(2,0,green).
+cell(2,1,yellow).
+cell(2,2,red).
+% 4x4 grid cells
+cell(0,0,blue).
+cell(0,1,green).
+cell(0,2,yellow).
+cell(0,3,red).
+cell(1,0,blue).
+cell(1,1,green).
+cell(1,2,yellow).
+cell(1,3,red).
+cell(2,0,blue).
+cell(2,1,green).
+cell(2,2,yellow).
+cell(2,3,red).
+cell(3,0,blue).
+cell(3,1,green).
+cell(3,2,yellow).
+cell(3,3,red).
 
 cell_has_color(X,Y,C) :- cell(X,Y,C).
 cell_occupied(_,_) :- fail. % No cells are occupied in this simple setup
